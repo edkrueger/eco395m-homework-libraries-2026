@@ -1,20 +1,22 @@
 # PROBLEM 1
 # How many rows are in the 2009 dataset?
 # Return a single column called "count" with a single row containing the count.
-query_1 = """
-    """
+query_1 = """select count(*) "count" from pls_fy2009_pupld09a pfpa"""
 
 # PROBLEM 2
 # How many rows are in the 2014 dataset?
 # Return a single column called "count" with a single row containing the count.
 query_2 = """
+select count(*) "count" from pls_fy2014_pupld14a pfpa2 
+
 """
 
 # PROBLEM 3
 # What are the maximum and minimum values for visits for the 2014 dataset?
-# Return a two columns called "max" and "man" with a single row containing the respective values
+# Return a two columns called "max" and "min" with a single row containing the respective values
 
 query_3 = """
+select max(visits) "max", min(visits) "min" from pls_fy2014_pupld14a
 """
 
 # PROBLEM 4
@@ -22,6 +24,10 @@ query_3 = """
 # Return a two columns called "stabr" and "visits" with rows in descending order of visits.
 
 query_4 = """
+select stabr, sum(visits) "visits" from pls_fy2014_pupld14a
+where visits > 0
+group by stabr
+order by visits desc
 """
 
 # PROBLEM 5
